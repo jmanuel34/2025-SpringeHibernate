@@ -19,7 +19,15 @@
 <!-- 			<constructor-arg type ="int" value = "45"/> -->
 <!-- 		</bean>	 -->
 
-	<!--  Método de factoria -->
-		<bean id="s01" class="es.cursosprhib.spr01xml.servicios.FactoriaServicio" factory-method="getInstance">			
+	<!--  Método de factoria Estatico-->
+<!-- 		<bean id="s01" class="es.cursosprhib.spr01xml.servicios.FactoriaServicio" factory-method="getInstance">			 -->
+<!-- 		</bean>	 -->
+
+		<!--  Método de factoria Instancia-->
+		<bean id="s01" class="es.cursosprhib.spr01xml.servicios.Servicio01Impl" 
+				factory-bean="factoria"  
+				factory-method="getInstance">			
 		</bean>	
+		<bean id ="factoria" class = "es.cursosprhib.spr01xml.servicios.FactoriaServicio01Instancia"></bean>
+		
 </beans>
