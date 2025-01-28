@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		 http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+<!-- 	<bean id="s01" class="es.cursosprhib.spr01xml.servicios.Servicio01Impl" scope="prototype"/> -->
+
+<!-- 		<bean id="s01" class="es.cursosprhib.spr01xml.servicios.Servicio01Impl" > -->
+<!-- 			<property name="descripcion" value ="Inicializado"/> -->
+<!-- 		</bean>		 -->
+
+<!-- 		<bean id="s01" class="es.cursosprhib.spr01xml.servicios.Servicio01Impl" > -->
+<!-- 			<constructor-arg type ="String" value="Inicializado por Constructor"/> -->
+<!-- 		</bean>	 -->
+
+<!-- <bean id="s01" class="es.cursosprhib.spr01xml.servicios.Servicio01Impl" > -->
+<!-- 			<constructor-arg type ="String" value="Inicializado por Constructor"/> -->
+<!-- 			<constructor-arg type ="int" value = "45"/> -->
+<!-- 		</bean>	 -->
+
+	<!--  Método de factoria -->
+		<bean id="s01" class="es.cursosprhib.spr01xml.servicios.FactoriaServicio" factory-method="getInstance">			
+		</bean>	
+</beans>

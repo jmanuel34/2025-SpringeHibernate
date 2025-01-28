@@ -1,0 +1,8 @@
+ 1.- Listar todos los clientes de una categoria parametrizada
+ 2.- Listar todos los empleados de una categoria parametrizada
+ 3.- Listar todos los Empleados de una categoria parametrizada que tengan un apellido determinado
+ 4.- Listar todos los clientes que han comprado productos de un precvio mayor a uno especifico
+ 5.- Listar los productos que ha comprado un cliente por su id
+ 6.- Listar los prodctos que no han sido comprados nunca
+ 7.- Listar los prodductos con el precio mayor (pueden ser varios con el mismo precio)
+ 8.- Cantidad de productos comprados por cada categoria de cliente
