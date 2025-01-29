@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		 http://www.springframework.org/schema/beans/spring-beans.xsd
+		 http://www.springframework.org/schema/context
+		 http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- Clase de negocio -->
+	<bean id="neg" class="es.cursosprhib.spr01xml.servicios.ServicioConAccesoADatosImpl">
+		<property name="clienteDao" ref="cDao" />
+	</bean>
+	<!--  Dao -->
+	<bean id="cDao" class="es.cursosprhib.spr01xml.persistencia.ClienteDaoImpl">
+		<constructor-arg type = "javax.sql.DataSource" ref ="dataSource" />
+	</bean>	
+		 <context:property-placeholder location="classpath:app.properties" /> 
+	
+	<beans profile="produccion">
+		 <!--  hemos Cambiado la referencia "dataSource por DataSourceProd -->
+	 <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+	 	<property name="url" value="${bbdd.url}" />
+	 	<property name="driverClassName" value="${bbdd.driver}" />
+	 	<property name="username" value="${bbdd.user}" />
+	 	<property name="password" value="${bbdd.password}" />
+	 	
+	 </bean>
+	</beans>
+	<beans profile="desarrollo">
+	  <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+	 	<property name="url" value="${bbdd.des.url}" />
+	 	<property name="driverClassName" value="${bbdd.des.driver}" />
+	 	<property name="username" value="${bbdd.des.user}" />
+	 	<property name="password" value="${bbdd.des.password}" />
+	 	
+	 </bean>
+	</beans>
+
+</beans>
+

@@ -15,8 +15,14 @@ import org.apache.commons.dbcp2.BasicDataSource;
 public class ClienteDaoImpl implements ClienteDao {
 	private DataSource ds;
 	
+	public ClienteDaoImpl(DataSource ds) {
+		this.ds=ds;
+	}
 	public ClienteDaoImpl() {
-		BasicDataSource bds= new BasicDataSource();
+/*		
+ * 		prueba de implementacion de un DataSource
+ */
+/*		BasicDataSource bds= new BasicDataSource();
 		Properties pro = new Properties();
 		try (FileReader fr = new FileReader("src/main/resources/app.properties")){
 			pro.load(fr);
@@ -29,6 +35,7 @@ public class ClienteDaoImpl implements ClienteDao {
 		bds.setUsername(pro.getProperty("bbdd.user"));
 		bds.setPassword(pro.getProperty("bbdd.password"));
 		ds=bds;
+//*/
 	}
 	public void consulta() {
 		String sql = "Select * from personas";
@@ -46,10 +53,6 @@ public class ClienteDaoImpl implements ClienteDao {
 		}
 		
 
-	}
-	public static void main(String[] args) {
-		ClienteDaoImpl cDao= new ClienteDaoImpl();
-		cDao.consulta();
 	}
 
 }
