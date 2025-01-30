@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		 http://www.springframework.org/schema/beans/spring-beans.xsd
+		 http://www.springframework.org/schema/context
+		 http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<context:property-placeholder location="classpath:bbdd.properties" /> 
+	<!--  Esto es para activar el @Autowired  -->
+	<context:annotation-config></context:annotation-config>		<!-- Activar este componente -->
+	<!-- Le indicamos los paquetes donde busdtar los @Componen y sus especializaciones -->
+	<context:component-scan base-package="persistencia, negocio, vista"></context:component-scan> <!-- Activar este componente -->
+	
+<!-- 	<bean id="bVista" class="vista.BancoVistaImpl"> -->
+<!-- 		<property name="bancoNegocio" ref="bNeg" /> -->
+<!-- 	</bean> -->
+	
+	<!-- Clase de negocio -->
+	<!-- 
+	<bean id="bNeg" class="negocio.BancoNegocioImpl">
+		<property name="bancoDao" ref="bDao" />
+	</bean>
+	 -->
+	<!--  Dao -->	
+<!-- 	<bean id="bDao" class="persistencia.BancoDaoImpl">				@Autowired -->
+<!-- 		<constructor-arg type = "javax.sql.DataSource" ref ="dataSource" />	@Autowired -->
+<!-- 	</bean>	 -->
+	
+	
+	 <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+	 	<property name="url" value="${bbdd.url}" />
+	 	<property name="driverClassName" value="${bbdd.driver}" />
+	 	<property name="username" value="${bbdd.user}" />
+	 	<property name="password" value="${bbdd.pass}" />
+	 	
+	 </bean>
+
+
+</beans>
+
