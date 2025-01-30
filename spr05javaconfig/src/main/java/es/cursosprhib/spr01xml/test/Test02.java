@@ -9,6 +9,7 @@ import es.cursosprhib.spr01xml.servicios.ServicioPrincipal;
 
 public class Test02 {
 
+	
 	public static void main(String[] args) {
 		BeanFactory ctx = new AnnotationConfigApplicationContext(A02Config.class);
 		ServicioPrincipal  sp = ctx.getBean("sPrincipal", ServicioPrincipal.class);
