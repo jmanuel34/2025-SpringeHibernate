@@ -12,6 +12,7 @@ public class Empleado extends Persona {
 	private static final long serialVersionUID = 1L;
 
 	private Integer nroEmpleado;
+	
 	@ManyToOne
 	@JoinColumn(name = "idCategoria")
 	private Categoria categoria;
