@@ -20,19 +20,19 @@ import jakarta.persistence.Table;
 @SuppressWarnings("serial")
 
 @Entity
-@Table(name = "personas")
 @Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "personas")
 public abstract class PersonaFisica implements Serializable, Comparable<PersonaFisica> {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idpersonas")
 	Integer idPersona;
-	
 	String nombre;
 	String apellido1;
 	String apellido2;
 	String nif;
+	
 	@Enumerated(EnumType.STRING)
 	Genero sexo;
 	String municipio;

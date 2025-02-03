@@ -15,6 +15,9 @@ public class App {
 		//*		
 		Tarjeta t = em.find(Tarjeta.class, 10 );
 		System.out.println(t.getPan());
+		
+		Movimiento m= em.find(Movimiento.class, 1);
+		System.out.println(m.getTarjeta());
 //*/
 	}
 

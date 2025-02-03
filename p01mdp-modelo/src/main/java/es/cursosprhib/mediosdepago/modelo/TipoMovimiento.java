@@ -3,6 +3,7 @@ package es.cursosprhib.mediosdepago.modelo;
 import java.io.Serializable;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,13 +11,17 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @SuppressWarnings("serial")
+
 @Entity
-@Table(name= "movimientos")
+@Table(name = "tipos_movimientos")
 public class TipoMovimiento implements Comparable<TipoMovimiento>, Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idtipos_movimientos")
 	private Integer idTipoMovimiento;
+	
+	@Column(name = "tipo_movimiento")
 	private String tipoMovimiento;
 	
 	public TipoMovimiento() {

@@ -6,7 +6,6 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
-import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,24 +13,28 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @SuppressWarnings("serial")
+
 @Entity
-@Table(name="extractos")
+@Table(name = "extractos")
 public class Extracto implements Comparable<Extracto>, Serializable{
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idextractos")
+	@Column(name = "idextractos")
 	private Integer idExtracto;
+	
 	private Integer anyo;
 	private Integer mes;
 	
-	@ManyToOne()
+	@ManyToOne
 	@JoinColumn(name = "idcuenta")
 	private Cuenta cuenta;
 	
-	
+	@OneToMany(mappedBy = "extracto")
 	private Set<Movimiento> movimientos;
 
 	public Extracto() {

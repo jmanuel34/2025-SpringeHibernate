@@ -15,24 +15,28 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @SuppressWarnings("serial")
-@Entity
-@Table(name= "tarjetas")
-public class Tarjeta implements Comparable<Tarjeta>, Serializable{
 
+@Entity
+@Table(name = "tarjetas")
+public class Tarjeta implements Comparable<Tarjeta>, Serializable{
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="idtarjetas")	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idtarjetas")
 	private Integer idTarjeta;
 	private String pan;
 	private String marca;
+	
 	@Enumerated(EnumType.STRING)
 	private TipoTarjeta tipo;
-	@Column(name="anyo_vencimiento")
+	
+	@Column(name = "anyo_vencimiento")
 	private Integer anyoVencimiento;
-	@Column(name="mes_vencimiento")
+	
+	@Column(name = "mes_vencimiento")
 	private Integer mesVencimiento;
 	
-	@ManyToOne()
+	@ManyToOne
 	@JoinColumn(name = "idcuentas")
 	private Cuenta cuenta;
 

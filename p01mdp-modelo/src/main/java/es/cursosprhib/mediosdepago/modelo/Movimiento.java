@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,13 +16,18 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @SuppressWarnings("serial")
+
 @Entity
-@Table(name="movimientos")
+@Table(name = "movimientos")
 public class Movimiento implements Comparable<Movimiento>, Serializable{
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idmovimientos")
 	private Integer idMovimiento;
+	
+	@ManyToOne
+	@JoinColumn(name = "idextracto")
 	private Extracto extracto;
 	
 	@ManyToOne
@@ -29,9 +35,9 @@ public class Movimiento implements Comparable<Movimiento>, Serializable{
 	private TipoMovimiento tipo;
 	
 	@ManyToOne
-	@JoinColumn(name= "idtarjeta")
-	
+	@JoinColumn(name = "idtarjeta")
 	private Tarjeta tarjeta;
+	
 	private Date fecha;
 	private Double importe;
 	private String proveedor;
@@ -138,7 +144,6 @@ public class Movimiento implements Comparable<Movimiento>, Serializable{
 
 	@Override
 	public int compareTo(Movimiento o) {
-		if(this.equals(o)) return 0;
-		else return this.fecha.compareTo(o.fecha);
+		return Integer.compare(this.idMovimiento, this.idMovimiento);
 	}
 }

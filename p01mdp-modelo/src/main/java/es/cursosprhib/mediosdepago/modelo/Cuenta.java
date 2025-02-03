@@ -1,7 +1,6 @@
 package es.cursosprhib.mediosdepago.modelo;
 
 import java.io.Serializable;
-import java.text.CollationElementIterator;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -18,30 +17,30 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @SuppressWarnings("serial")
+
 @Entity
-@Table(name= "cuentas")
+@Table(name = "cuentas")
 public class Cuenta implements Comparable<Cuenta>, Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="idcuentas")
+	@Column(name = "idcuentas")
 	private Integer idCuenta;
-	@Column(name="numero")
+	
+	@Column(name = "numero")
 	private String nroCuenta;
 	
 	@ManyToOne
-//	@JoinColumn(name= "cuentas")
-	@JoinColumn(name= "idclientes")
-
+	@JoinColumn(name = "idclientes")
 	private Cliente cliente;
 	
 	@OneToMany(mappedBy = "cuenta")
 	private Set<Tarjeta> tarjetas;
 	
-	@OneToMany(mappedBy="cuenta")
+	@OneToMany(mappedBy = "cuenta")
 	private Set<Extracto> extractos;
 	
-	public Cuenta() {
+	public Cuenta() {  
 	}
 
 	public Cuenta(String nroCuenta, Cliente cliente) {

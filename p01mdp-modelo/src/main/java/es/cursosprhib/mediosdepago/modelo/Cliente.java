@@ -11,12 +11,11 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "clientes")
-
 public class Cliente extends PersonaFisica {
 	
 	private Integer nroCliente;
 	
-	@OneToMany(mappedBy = "cliente")	
+	@OneToMany(mappedBy = "cliente")
 	private Set<Cuenta> cuentas;
 	
 	public Cliente() {
