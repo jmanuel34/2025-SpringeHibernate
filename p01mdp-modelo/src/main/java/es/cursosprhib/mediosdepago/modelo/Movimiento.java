@@ -144,6 +144,6 @@ public class Movimiento implements Comparable<Movimiento>, Serializable{
 
 	@Override
 	public int compareTo(Movimiento o) {
-		return Integer.compare(this.idMovimiento, this.idMovimiento);
+		return Integer.compare(this.idMovimiento, o.idMovimiento);
 	}
 }

@@ -140,9 +140,10 @@ public class Movimiento implements Comparable<Movimiento>, Serializable{
 		return Objects.equals(idMovimiento, other.idMovimiento);
 	}
 
+	// En este caso para comprobar si es igual por ser un Set<Movimiento>
+	// usa el compareTo y no usa el equals
 	@Override
 	public int compareTo(Movimiento o) {
-		if(this.equals(o)) return 0;
-		else return this.fecha.compareTo(o.fecha);
+		return Integer.compare(this.idMovimiento, o.idMovimiento);
 	}
 }
