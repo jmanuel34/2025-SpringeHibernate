@@ -14,7 +14,7 @@ public class CompraImpl implements Compra{
 
 	private ExtractoDao extDao;
 	
-	@Autowired 		//Opcional en este caso de que se le pasa por consturctor
+	@Autowired 		//Opcional en este caso  al pasarlo por consturctor
 	public CompraImpl(ExtractoDao extDao) {
 		this.extDao = extDao;
 	}
