@@ -6,55 +6,28 @@ import java.util.List;
 import es.cursosprhib.mediosdepago.modelo.Cliente;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 
-//Implementar en la clase sólo los siguientes métodos:
-//findAll()
-//findByNombre(...)
-//findByIdEager(...)
 public class ClienteDaoImpl implements ClienteDao {
 
-	private EntityManager em;
 	private EntityManagerFactory emf;
-	
+	private EntityManager em;
 	
 	public ClienteDaoImpl(EntityManagerFactory emf) {
-		super();
 		this.emf = emf;
 	}
 
 	@Override
 	public Cliente save(Cliente entidad) {
-		Cliente saved = null;
-		try {
-			em = emf.createEntityManager();
-			em.getTransaction().begin();
-			saved = em.merge(entidad);
-			em.getTransaction().commit();
-			
-		}catch (Exception e) {
-			em.getTransaction().rollback();
-			e.printStackTrace();
-		} finally {
-			em.close();
-		}
-		return saved;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
 	public List<Cliente> saveAll(Collection<Cliente> entidades) {
-		List<Cliente> clientes = null;
-		try {
-			em = emf.createEntityManager();
-			String jpql = "Select c from Cliente c";
-			TypedQuery<Cliente> q =em.createQuery(jpql, Cliente.class);
-			clientes = q.getResultList();
-		} catch(Exception e) {
-			e.printStackTrace();
-		} finally {
-			em.close();
-		}
-		return clientes;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -66,13 +39,13 @@ public class ClienteDaoImpl implements ClienteDao {
 	@Override
 	public void delete(Cliente entidad) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void deleteAll(Collection<Cliente> entidades) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -83,39 +56,34 @@ public class ClienteDaoImpl implements ClienteDao {
 
 	@Override
 	public Cliente findById(Integer id) {
-		Cliente cli= null;
-		try {
-			em=emf.createEntityManager();
-			cli= em.find(Cliente.class, id);
-			em.getTransaction().begin();
-			cli.getCuentas().size();
-			em.getTransaction().commit();
-		} catch(Exception e) {
-			e.printStackTrace();			
-		} finally {
-			em.close();
-		}
-	return cli;
+		// TODO Auto-generated method stub
+		return null;
 	}
-/*
+	
+	@Override
 	public Cliente findByIdEager(Integer id) {
-		
-	}
-//*/	
+		em = emf.createEntityManager();
+		Cliente resu;
+		String jpql = "select c from Cliente c left join fetch c.cuentas where c.idPersona = :id";
+		TypedQuery<Cliente> q = em.createQuery(jpql, Cliente.class);
+		q.setParameter("id", id);
+		try {
+			resu = q.getSingleResult();
+		} catch(NoResultException e) {
+			resu = null;
+		}
+		em.close();
+		return resu;
+	};
+
 	@Override
 	public List<Cliente> findAll() {
-		
-		List<Cliente> resu=null;;
-		try {
-			em=emf.createEntityManager();
-			String jpql= "Select c from Cliente c";
-			TypedQuery<Cliente> q = em.createQuery(jpql, Cliente.class);
-			resu= q.getResultList();
-		} catch(Exception e) {
-			e.printStackTrace();		
-		} finally {
-			em.close();
-		}
+		em = emf.createEntityManager();
+		List<Cliente> resu;
+		String jpql = "select c from Cliente c";
+		TypedQuery<Cliente> q = em.createQuery(jpql, Cliente.class);
+		resu = q.getResultList();
+		em.close();
 		return resu;
 	}
 
@@ -127,19 +95,15 @@ public class ClienteDaoImpl implements ClienteDao {
 
 	@Override
 	public List<Cliente> findByNombre(String nombre) {
-		List<Cliente> clientes = null;
-		try {
-			em = emf.createEntityManager();
-			String jpql = "Select c from Cliente c where c.nombre like :nombre or c.apellido1 like :nombre or c.apellido2 like :nombre";
-			TypedQuery<Cliente> q =em.createQuery(jpql, Cliente.class);
-			q.setParameter("nombre", "%" +nombre+ "%");
-			clientes = q.getResultList();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			em.close();
-		}
-		return clientes;
+		em = emf.createEntityManager();
+		List<Cliente> resu;
+		String jpql = 
+			"select c from Cliente c where c.nombre like :nom or c.apellido1 like :nom or c.apellido2 like :nom";
+		TypedQuery<Cliente> q = em.createQuery(jpql, Cliente.class);
+		q.setParameter("nom", "%" + nombre + "%");
+		resu = q.getResultList();
+		em.close();
+		return resu;
 	}
 
 }

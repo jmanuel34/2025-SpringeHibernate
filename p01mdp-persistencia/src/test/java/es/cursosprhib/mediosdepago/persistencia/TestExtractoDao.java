@@ -13,7 +13,6 @@ class TestExtractoDao {
 
 	private static ExtractoDaoImpl eDao;
 	
-	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		eDao = new ExtractoDaoImpl(EMFactory.getEmf());

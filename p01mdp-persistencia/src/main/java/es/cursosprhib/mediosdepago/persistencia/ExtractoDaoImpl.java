@@ -7,20 +7,18 @@ import es.cursosprhib.mediosdepago.modelo.Cuenta;
 import es.cursosprhib.mediosdepago.modelo.Extracto;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 
-//Implementar en la clase sólo los siguientes métodos:
-//findExtracto(...)
 public class ExtractoDaoImpl implements ExtractoDao {
 
-	private EntityManager em;
 	private EntityManagerFactory emf;
+	private EntityManager em;
 	
 	public ExtractoDaoImpl(EntityManagerFactory emf) {
-		super();
 		this.emf = emf;
 	}
-
+	
 	@Override
 	public Extracto save(Extracto entidad) {
 		// TODO Auto-generated method stub
@@ -42,13 +40,13 @@ public class ExtractoDaoImpl implements ExtractoDao {
 	@Override
 	public void delete(Extracto entidad) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void deleteAll(Collection<Extracto> entidades) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -77,23 +75,21 @@ public class ExtractoDaoImpl implements ExtractoDao {
 
 	@Override
 	public Extracto findExtracto(Cuenta cuenta, int anyo, int mes) {
-		
-		Extracto ex= null;
+		em = emf.createEntityManager();
+		Extracto resu;
+		String jpql = 
+			"select e from Extracto e where e.cuenta = :cuenta and e.anyo = :anyo and e.mes = :mes ";
+		TypedQuery<Extracto> q = em.createQuery(jpql, Extracto.class);
+		q.setParameter("cuenta", cuenta);
+		q.setParameter("anyo", anyo);
+		q.setParameter("mes", mes);
 		try {
-			em=emf.createEntityManager();
-			String jpql = "Select e from Extracto e where e.cuenta= :cuenta and e.anyo= :anyo and e.mes= :mes";
-			TypedQuery<Extracto> q = em.createQuery(jpql, Extracto.class);
-			q.setParameter("cuenta", cuenta);
-			q.setParameter("anyo", anyo);
-			q.setParameter("mes", mes);
-			ex = q.getSingleResult();
-		} catch(Exception e) {
-			e.printStackTrace();			
-		} finally {
-			em.close();
+			resu = q.getSingleResult();
+		} catch(NoResultException e) {
+			resu = null;
 		}
-		return ex;
-
+		em.close();
+		return resu;
 	}
 
 }

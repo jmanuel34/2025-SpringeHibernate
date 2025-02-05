@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>es.cursosprhib</groupId>
-  <artifactId>p01mdp-modelo</artifactId>
+  <artifactId>p01mdp-modelo_jm</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>p01mdp-modelo</name>
+  <name>p01mdp-modelo_jm</name>
   <description>A simple p01mdp-modelo.</description>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
