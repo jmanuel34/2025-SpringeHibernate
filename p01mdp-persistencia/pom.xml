@@ -6,11 +6,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>es.cursosprhib</groupId>
-	<artifactId>p01mdp-persistencia_jm</artifactId>
+	<artifactId>p01mdp-persistencia</artifactId>
 	<version>1</version>
 
 	<name>p01mdp-persistencia</name>
-	<description>A simple p01mdp-persistencia.</description>
+	<description>A simple p01mdp-persistencia</description>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 

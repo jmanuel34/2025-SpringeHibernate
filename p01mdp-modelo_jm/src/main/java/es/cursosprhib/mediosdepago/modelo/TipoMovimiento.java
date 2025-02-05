@@ -19,7 +19,7 @@ public class TipoMovimiento implements Comparable<TipoMovimiento>, Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name= "idtipos_movimientos")
 	private Integer idTipoMovimiento;
-	@Column(name= "tipo_movimientos")
+	@Column(name= "tipo_movimiento")
 	private String tipoMovimiento;
 	
 	public TipoMovimiento() {

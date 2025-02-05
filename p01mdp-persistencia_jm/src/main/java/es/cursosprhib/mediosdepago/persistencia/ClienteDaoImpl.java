@@ -3,6 +3,8 @@ package es.cursosprhib.mediosdepago.persistencia;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import es.cursosprhib.mediosdepago.modelo.Cliente;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -12,6 +14,9 @@ import jakarta.persistence.TypedQuery;
 //findAll()
 //findByNombre(...)
 //findByIdEager(...)
+
+
+@Repository
 public class ClienteDaoImpl implements ClienteDao {
 
 	private EntityManager em;

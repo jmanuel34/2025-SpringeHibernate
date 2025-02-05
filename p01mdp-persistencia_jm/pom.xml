@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>es.cursosprhib</groupId>
-  <artifactId>p01mdp_persistencia</artifactId>
+  <artifactId>p01mdp_persistencia_jm</artifactId>
   <version>1</version>
 
-  <name>p01mdp_persistencia</name>
-  <description>A simple p01mdp_persistencia.</description>
+  <name>p01mdp_persistencia_jm</name>
+  <description>A simple p01mdp_persistencia Jm.</description>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -37,6 +37,15 @@
 		<artifactId>spring-context</artifactId>
 		<version>6.2.2</version>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>6.2.1</version>
+    <scope>test</scope>
+</dependency>
+
   </dependencies>
 
   <build>

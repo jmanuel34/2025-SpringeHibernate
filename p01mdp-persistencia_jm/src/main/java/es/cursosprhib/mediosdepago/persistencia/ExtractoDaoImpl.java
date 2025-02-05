@@ -3,6 +3,9 @@ package es.cursosprhib.mediosdepago.persistencia;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import es.cursosprhib.mediosdepago.modelo.Cuenta;
 import es.cursosprhib.mediosdepago.modelo.Extracto;
 import jakarta.persistence.EntityManager;
@@ -11,11 +14,15 @@ import jakarta.persistence.TypedQuery;
 
 //Implementar en la clase sólo los siguientes métodos:
 //findExtracto(...)
+
+
+@Repository
 public class ExtractoDaoImpl implements ExtractoDao {
 
 	private EntityManager em;
 	private EntityManagerFactory emf;
 	
+	@Autowired // Opcional
 	public ExtractoDaoImpl(EntityManagerFactory emf) {
 		super();
 		this.emf = emf;
