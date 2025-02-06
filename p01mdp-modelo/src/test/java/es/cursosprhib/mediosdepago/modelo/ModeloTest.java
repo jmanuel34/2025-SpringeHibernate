@@ -7,7 +7,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.hibernate.internal.build.AllowSysOut;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +22,6 @@ public class ModeloTest {
 	@BeforeEach
 	public void setUp() {
 		em = emf.createEntityManager();
-		System.out.println("foreach");
 		borraTablas();
 	}
 

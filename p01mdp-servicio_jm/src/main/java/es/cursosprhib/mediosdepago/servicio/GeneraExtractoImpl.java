@@ -29,6 +29,7 @@ public class GeneraExtractoImpl implements GeneraExtracto{
 
 	@Override
 	public List<Cliente> getClientes(String nombre) {
+		System.out.println("Nombre:" + nombre);
 		if(nombre.equals("")) return cliDao.findAll();
 		else return cliDao.findByNombre(nombre);
 	}

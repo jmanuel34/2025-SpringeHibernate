@@ -3,17 +3,22 @@ package es.cursosprhib.mediosdepago.persistencia;
 import java.util.Collection;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import es.cursosprhib.mediosdepago.modelo.Cliente;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;
 
+@Repository
 public class ClienteDaoImpl implements ClienteDao {
 
 	private EntityManagerFactory emf;
 	private EntityManager em;
 	
+	@Autowired
 	public ClienteDaoImpl(EntityManagerFactory emf) {
 		this.emf = emf;
 	}

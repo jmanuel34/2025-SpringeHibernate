@@ -88,7 +88,12 @@ public class ExtractoDaoImpl implements ExtractoDao {
 		Extracto ex= null;
 		try {
 			em=emf.createEntityManager();
-			String jpql = "Select e from Extracto e where e.cuenta= :cuenta and e.anyo= :anyo and e.mes= :mes";
+			String jpql = "Select e from Extracto e "
+					+ " join fetch e.movimientos m "
+					+ "join fetch m.tipo tm "
+					+ "join fetch e.cuenta c "
+					+ "join fetch c.tarjetas t "
+					+ "where e.cuenta= :cuenta and e.anyo= :anyo and e.mes= :mes ";
 			TypedQuery<Extracto> q = em.createQuery(jpql, Extracto.class);
 			q.setParameter("cuenta", cuenta);
 			q.setParameter("anyo", anyo);

@@ -10,7 +10,7 @@
 	<version>1</version>
 
 	<name>p01mdp-persistencia</name>
-	<description>A simple p01mdp-persistencia</description>
+	<description>A simple p01mdp-persistencia.</description>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 
@@ -27,7 +27,20 @@
 			<version>1</version>
 		</dependency>
 		<!--
-		https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+		https://mvnrepository.com/artifact/org.springframework/spring-context -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>6.2.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>6.2.2</version>
+			<scope>test</scope>
+		</dependency>
+		<!--https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
