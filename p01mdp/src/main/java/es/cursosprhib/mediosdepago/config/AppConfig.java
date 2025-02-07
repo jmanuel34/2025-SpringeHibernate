@@ -20,7 +20,7 @@ import jakarta.persistence.Persistence;
 public class AppConfig {
 
 	@Bean
-	@Profile("test")
+	@Profile("tests")
 	public EntityManagerFactory emfTest() {
 		Map<String, Object> prop = new HashMap<>();
 
