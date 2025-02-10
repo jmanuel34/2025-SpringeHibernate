@@ -3,6 +3,7 @@ package es.cursosprhib.mediosdepago.modelo;
 import java.util.HashSet;
 import java.util.Set;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -13,7 +14,7 @@ import jakarta.persistence.Table;
 @Table(name = "clientes")
 
 public class Cliente extends PersonaFisica {
-	
+	@Column(name="nrocliente")
 	private Integer nroCliente;
 	
 	@OneToMany(mappedBy = "cliente")	
