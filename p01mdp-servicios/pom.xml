@@ -6,11 +6,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>es.cursosprhib</groupId>
-	<artifactId>p01mdp-servicios</artifactId>
+	<artifactId>p01mdp-servicios-sboot</artifactId>
 	<version>1</version>
 
 	<name>p01mdp-servicios</name>
-	<description>A simple p01mdp-servicios.</description>
+	<description>A simple p01mdp-servicios-sboot.</description>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
 

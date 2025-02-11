@@ -8,11 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @Configuration
 @EntityScan("es.cursosprhib.mediosdepago.modelo")
-
-// Anotacion: no es necesario repositoryImplementationPostfix  siempre que sea con Impl
 @EnableJpaRepositories(repositoryImplementationPostfix = "Impl", 
-		basePackages ="es.cursosprhib.mediosdepago.persistencia")
-//						es.cursosprhib.medidosdepago.persistencia
+					basePackages = "es.cursosprhib.mediosdepago.persistencia")
 public class PersistenciaConfig {
 
 }

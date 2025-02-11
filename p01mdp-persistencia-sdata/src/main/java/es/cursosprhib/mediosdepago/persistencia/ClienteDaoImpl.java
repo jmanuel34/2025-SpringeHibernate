@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import es.cursosprhib.mediosdepago.modelo.Cliente;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -13,7 +11,7 @@ import jakarta.persistence.PersistenceContext;
 public class ClienteDaoImpl implements ClienteDaoCustom {
 
 	@PersistenceContext
-	EntityManager em;
+	EntityManager em; 
 
 //	Desaconsejado
 //	@Autowired

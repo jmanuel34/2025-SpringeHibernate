@@ -3,24 +3,19 @@ package es.cursosprhib.medidosdepago.persistencia;
 import java.util.Collection;
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import es.cursosprhib.mediosdepago.modelo.Cliente;
-import jakarta.persistence.EntityManager;
+import es.cursosprhib.mediosdepago.persistencia.ExtractoDao;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.TypedQuery;
 
-//Implementar en la clase sólo los siguientes métodos:
-//findAll()
-//findByNombre(...)
-//findByIdEager(...)
-
-
-@Repository
+@SpringBootTest
 public class ClienteDao implements ClienteDao {
 
-	private EntityManager em;
-	private EntityManagerFactory emf;
+	@Autowired
+	private ExtractoDao eDao;
 	
 	
 	public ClienteDao(EntityManagerFactory emf) {
