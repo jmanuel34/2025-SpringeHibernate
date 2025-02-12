@@ -20,6 +20,7 @@ class TestClienteDao {
 	@Test
 	void testFindAll() {
 		assertEquals(184, cliDao.findAll().size());
+//		assertEquals(184, cliDao.findAll().size());
 	}
 
 	@Test

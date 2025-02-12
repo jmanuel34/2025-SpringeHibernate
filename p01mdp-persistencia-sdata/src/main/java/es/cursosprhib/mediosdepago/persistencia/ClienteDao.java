@@ -23,6 +23,6 @@ public interface ClienteDao extends JpaRepository<Cliente, Integer>, ClienteDaoC
 		return Optional.ofNullable(findByIdEager(id));
 	}
 	
-	@Query(nativeQuery = true, value = "select * from clientes join personas ...")
-	public List<Cliente> noUsar();
+//	@Query(nativeQuery = true, value = "select * from clientes join personas ...")
+//	public List<Cliente> noUsar();
 }
